@@ -22,12 +22,21 @@ currentPicDB = cloudant.db.use(dbname);
 
 
 // Add picture to current database for easy access
-fs.readFile('apple.jpg', function(err, data) {
+fs.readFile('curr.jpg', function(err, data) {
   if (!err) {
     currentPicDB.multipart.insert({ file: 'picture' }, [{name: 'curr.jpg', data: data, content_type: 'image/png'}], 'currentPicture', function(err, body) {
         if (!err)
           console.log(body);
-          currentPhoto();
+        //  currentPhoto();
+        var url = "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key=0d548472e99bf5301152b2b8b3dc24263be5541b&url=https://ad9a8b15-7414-47e6-b37d-507983626073-bluemix.cloudant.com/current-picture/currentPicture/curr.jpg&version=2016-05-19"
+
+        request(url, function (error, response, body) {
+          if (!error && response.statusCode == 200) {
+            //console.log(body.images) // Show the HTML for the Google homepage.
+            data = JSON.parse(body).images;
+            console.log(data);
+          }
+        })
     });
   } else {
     console.log(err);
@@ -36,13 +45,13 @@ fs.readFile('apple.jpg', function(err, data) {
 
 
 function currentPhoto() {
-  var url = "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key=0d548472e99bf5301152b2b8b3dc24263be5541b&url=https://ad9a8b15-7414-47e6-b37d-507983626073-bluemix.cloudant.com/current-picture/currentPicture/current.jpg&version=2016-05-19"
+  var url = "https://gateway-a.watsonplatform.net/visual-recognition/api/v3/classify?api_key=0d548472e99bf5301152b2b8b3dc24263be5541b&url=https://ad9a8b15-7414-47e6-b37d-507983626073-bluemix.cloudant.com/current-picture/currentPicture/curr.jpg&version=2016-05-19"
 
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       //console.log(body.images) // Show the HTML for the Google homepage.
       data = JSON.parse(body).images;
-      console.log(data.images);
+      console.log(data);
     }
   })
 }
