@@ -24,7 +24,7 @@ currentPicDB = cloudant.db.use(dbname);
 // Add picture to current database for easy access
 fs.readFile('apple.jpg', function(err, data) {
   if (!err) {
-    currentPicDB.multipart.insert({ file: 'picture' }, [{name: 'current.jpg', data: data, content_type: 'image/png'}], 'currentPicture', function(err, body) {
+    currentPicDB.multipart.insert({ file: 'picture' }, [{name: 'curr.jpg', data: data, content_type: 'image/png'}], 'currentPicture', function(err, body) {
         if (!err)
           console.log(body);
           currentPhoto();
