@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 var gpio = require('pi-gpio');
 var raspiCam = require('raspicam');
+=======
+var gpio = require('rpi-gpio');
+var RaspiCam = require('raspicam');
+>>>>>>> e5766d6c21501e74f273de81cd148b4e4881499a
 
 var buttonPIN = 14
 
