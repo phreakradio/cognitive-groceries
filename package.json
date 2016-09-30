@@ -8,9 +8,7 @@
   },
   "dependencies": {
     "cloudant": "*",
-    "pi-gpio": "0.0.8",
-    "raspicam": "^0.2.13",
-    "request": "*",
-    "rpi-gpio": "0.7.0"
+    "express": "*",
+    "request": "*"
   }
 }
