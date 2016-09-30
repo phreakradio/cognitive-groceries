@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+var gpio = require('pi-gpio');
+var raspiCam = require('raspicam');
+=======
 var gpio = require('rpi-gpio');
 var RaspiCam = require('raspicam');
+>>>>>>> e5766d6c21501e74f273de81cd148b4e4881499a
 
 var buttonPIN = 14
 
@@ -25,12 +30,15 @@ camera.on("exit", function( timestamp ){
 });
 
 //Set up button press / event trigger
-gpio.setup(buttonPIN, gpio.DIR_IN, readInput);
-function readInput(){
+gpio.open(buttonPIN,"input",function(err){
   gpio.read(buttonPIN,function(err,value){
-     camera.start();
+    if(err) throw err;
+
+    if(value == 1){camera.start();}
+    else {camera.stop();}
+
   });
-}
+});
+
 
 //Set up call to DB
-// Go for it
