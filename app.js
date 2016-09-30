@@ -1,5 +1,5 @@
 var gpio = require('rpi-gpio');
-var raspiCam = require('raspicam');
+var RaspiCam = require('raspicam');
 
 var buttonPIN = 14
 
