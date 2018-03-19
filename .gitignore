@@ -165,4 +165,4 @@ venv.bak/
 .mypy_cache/
 
 #remove config
-/config
+/config/auth.js
