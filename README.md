@@ -3,7 +3,7 @@ IBM Poughkeepsie Hackathon 2016 submission
 
 ## 2nd Place Winners : Demian "Alejandro" Velasco & Dmytro Malaniouk ##
 
-### Abstract ###:
+### Abstract:
 Using IBM's Watson and open source technology, we were able to setup a skeleton backend system that
 visually detects the food in a user's fridge and identifies the state of it. For lack of a better 
 description, a food ledger that leverages the power of IBM's Machine Learning Cloud platform
